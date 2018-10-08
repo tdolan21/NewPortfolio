@@ -1,20 +1,37 @@
- // Initialize Firebase
- var config = {
-    apiKey: "AIzaSyD9wOmVJG5v_4MSElMia0aabAIwaiez2KA",
-    authDomain: "updatedportfolio-d4677.firebaseapp.com",
-    databaseURL: "https://updatedportfolio-d4677.firebaseio.com",
-    projectId: "updatedportfolio-d4677",
-    storageBucket: "",
-    messagingSenderId: "146707291858"
-  };
-  firebase.initializeApp(config);
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyD9wOmVJG5v_4MSElMia0aabAIwaiez2KA",
+  authDomain: "updatedportfolio-d4677.firebaseapp.com",
+  databaseURL: "https://updatedportfolio-d4677.firebaseio.com",
+  projectId: "updatedportfolio-d4677",
+  storageBucket: "",
+  messagingSenderId: "146707291858"
+};
+firebase.initializeApp(config);
 
-  var database = firebase.database();
+var database = firebase.database();
 
-$("#submitButton").on("click", function(){
-    var subject = $("#subject").val().trim();
-    var userContact=$("#userContact").val().trim();
-    var userInput = $("#formBody").val().trim();
+$("#submitButton").on("click", function() {
+  var subject = $("#subject")
+    .val()
+    .trim();
+  var userContact = $("#userContact")
+    .val()
+    .trim();
+  var userInput = $("#formBody")
+    .val()
+    .trim();
 
-    database.ref().push({subject: subject, userContact: userContact, userInput: userInput})
-})
+  database
+    .ref()
+    .push({ subject: subject, userContact: userContact, userInput: userInput });
+});
+
+var apiURL = [
+  "https://www.googleapis.com/webfonts/v1/webfonts?key=YOUR-API-KEY"
+];
+navigator.registerProtocolHandler(
+  "mailto",
+  "https://mail.google.com/mail/?extsrc=mailto&url=%s",
+  "Gmail"
+);
